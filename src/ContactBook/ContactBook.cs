@@ -192,6 +192,51 @@ public sealed class ContactBook
         Pause("No changes made.");
     }
 
+    private void DeleteContact()
+    {
+        Clear();
+        ShowContacts(_contacts, "Delete Contact");
+        var index = ReadIndex("Enter contact index", _contacts.Count) - 1;
+        var contact = _contacts[index];
+
+        WriteContactTable([contact], index + 1);
+        if (!Confirm("Do you want to delete this contact?"))
+        {
+            Pause("Delete cancelled.");
+            return;
+        }
+
+        _contacts.RemoveAt(index);
+        Pause("Contact deleted.");
+    }
+
+    private void UpdateContact()
+    {
+        Clear();
+        ShowContacts(_contacts, "Update Contact");
+        var index = ReadIndex("Enter contact index", _contacts.Count) - 1;
+        var contact = _contacts[index];
+
+        Console.WriteLine("Leave a field blank to keep its current value.");
+        contact.FirstName = ReadOptional("First name", contact.FirstName);
+        contact.LastName = ReadOptional("Last name", contact.LastName);
+        contact.Phone = ReadOptional("Phone", contact.Phone);
+        contact.Email = ReadOptional("Email", contact.Email);
+
+        Pause("Contact updated.");
+    }
+
+    private void GotoPage()
+    {
+        var totalPages = Math.Max(1, (int)Math.Ceiling(_contacts.Count / (double)_pageSize));
+        _pageIndex = ReadIndex("Enter page number", totalPages) - 1;
+    }
+
+    private void ChangePageSize()
+    {
+        _pageSize = ReadIndex("Enter page size", 20);
+        _pageIndex = 0;
+    }
     private void FindContactsScreen()
     {
         Clear();
@@ -301,6 +346,13 @@ public sealed class ContactBook
         }
     }
 
+    private static string ReadOptional(string field, string current)
+    {
+        Console.Write($"{field} [{current}] ");
+        var value = Console.ReadLine()?.Trim() ?? string.Empty;
+        return string.IsNullOrWhiteSpace(value) ? current : value;
+    }
+
     private static int ReadIndex(string prompt, int maximum)
     {
         while (true)
@@ -344,5 +396,6 @@ public sealed class ContactBook
         }
     }
 }
+
 
 
