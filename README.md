@@ -134,4 +134,22 @@ Tambien se puede correr la aplicacion principal con:
 ```powershell
 dotnet run --project src/ContactBook
 ```
+## Opciones del menu final
+
+La aplicacion principal muestra una tabla de contactos y estas opciones:
+
+- `[+]` Next Page
+- `[-]` Prev Page
+- `[G]` Goto Page
+- `[C]` Create Contact
+- `[R]` Review Contact
+- `[U]` Update Contact
+- `[D]` Delete Contact
+- `[F]` Find Contacts
+- `[O]` Order Contacts
+- `[M]` Deduplicate Contacts
+- `[S]` Change Page Size
+- `[X]` Exit
+
+El flujo de `M` muestra contactos duplicados, permite escoger el first name, last name, phone y email que formaran el merged contact, y luego confirma si se deben unir.
 
