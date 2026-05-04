@@ -16,7 +16,7 @@ public static class ContactBookTest
         var groups = book.FindDuplicateContacts();
 
         Assert.True(groups.Count >= 1, "At least one duplicate group should be found.");
-        Assert.Equal(3, groups[0].Count);
+        Assert.True(groups.Any(group => group.Count == 3 && group.All(contact => contact.FirstName == "Hailey")), "The Hailey duplicate group should contain three contacts.");
     }
     public static void MergeAutomaticallyKeepsBestFields()
     {
@@ -34,4 +34,5 @@ public static class ContactBookTest
         Assert.Equal("h.gomez@gmail.com", merged.Email);
     }
 }
+
 
