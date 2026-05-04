@@ -44,3 +44,22 @@ ContactBookCsharp
 +- LICENSE
 +- README.md
 ```
+## Como correr el proyecto
+
+```powershell
+dotnet run --project src/ContactBook
+```
+
+En VS Code tambien puedes ir a **Run and Debug** y seleccionar **ContactBook**. La configuracion en `.vscode/launch.json` usa `externalTerminal`, para que la app de consola abra en una terminal externa.
+
+## Como correr las pruebas
+
+```powershell
+dotnet run --project tests/ContactBook.Test
+```
+
+## Como compilar la solucion
+
+```powershell
+dotnet build ContactBookCSharp.sln
+```
