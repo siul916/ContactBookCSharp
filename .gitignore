@@ -5,3 +5,5 @@ obj/
 .templateengine/
 .nuget-packages/
 contacts.json
+
+.fake

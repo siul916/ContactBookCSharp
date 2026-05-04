@@ -101,3 +101,22 @@ dotnet build ContactBookCSharp.sln
    - `Find` usa compresion de caminos.
    - `Join` usa union por rango.
    - `UnionTest.cs` prueba el algoritmo.
+## Estructuras de datos y algoritmos
+
+- `List<Contact>` para guardar contactos.
+- `FindAll` para buscar contactos.
+- `IComparer<Contact>` para ordenar.
+- `Skip` y `Take` para paginacion.
+- `Union<T>` para Disjoint-Set-Union.
+- Find-Union para agrupar duplicados antes de unirlos.
+
+## Future Work
+
+Estas mejoras quedan como trabajo futuro, igual que en la introduccion del profesor:
+
+- Load/Save to file.
+- Last modified timestamps.
+- More contact fields.
+- Data persistence.
+- Web API.
+- Web app.
