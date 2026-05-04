@@ -14,3 +14,33 @@ Conceptos incluidos:
 - Enfoque top-down y bottom-up.
 - Trabajar con una cosa a la vez.
 - GitHub: repositorio, commits y push.
+## Estructura
+
+```text
+ContactBookCsharp
++- .vscode
+¦  +- launch.json
+¦  +- settings.json
+¦  +- tasks.json
++- src
+¦  +- ContactBook
+¦     +- Contact.cs
+¦     +- ContactBook.cs
+¦     +- ContactBook.csproj
+¦     +- ContactComparer.cs
+¦     +- ContactMerger.cs
+¦     +- ContactSeed.cs
+¦     +- Program.cs
+¦     +- Union.cs
++- tests
+¦  +- ContactBook.Test
+¦     +- ContactBook.Test.csproj
+¦     +- ContactBookTest.cs
+¦     +- ContactTests.cs
+¦     +- Program.cs
+¦     +- UnionTest.cs
++- .gitignore
++- ContactBookCSharp.sln
++- LICENSE
++- README.md
+```
