@@ -19,6 +19,7 @@ public sealed class Union<T>
 
     public T Find(T value)
     {
+        // Path compression keeps future Find calls close to constant time.
         MakeSet(value);
 
         if (!EqualityComparer<T>.Default.Equals(_parents[value], value))
@@ -31,6 +32,7 @@ public sealed class Union<T>
 
     public bool Join(T first, T second)
     {
+        // Union by rank keeps the tree shallow when two sets are joined.
         var firstRoot = Find(first);
         var secondRoot = Find(second);
 
@@ -61,3 +63,4 @@ public sealed class Union<T>
         return EqualityComparer<T>.Default.Equals(Find(first), Find(second));
     }
 }
+
