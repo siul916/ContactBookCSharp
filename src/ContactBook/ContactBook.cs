@@ -2,10 +2,9 @@ namespace ContactBook;
 
 public sealed class ContactBook
 {
-    private const int PageSize = 5;
-
     private readonly List<Contact> _contacts;
     private int _pageIndex;
+    private int _pageSize = 10;
     private ContactSortField _sortField = ContactSortField.FirstName;
 
     public ContactBook(IEnumerable<Contact> contacts)
@@ -68,10 +67,10 @@ public sealed class ContactBook
     {
         switch (option)
         {
-            case "N":
+            case "+":
                 NextPage();
                 break;
-            case "P":
+            case "-":
                 PreviousPage();
                 break;
             case "C":
@@ -87,7 +86,19 @@ public sealed class ContactBook
                 OrderContacts();
                 break;
             case "D":
+                DeleteContact();
+                break;
+            case "M":
                 DeduplicateContacts();
+                break;
+            case "G":
+                GotoPage();
+                break;
+            case "S":
+                ChangePageSize();
+                break;
+            case "U":
+                UpdateContact();
                 break;
             case "X":
                 ShowExitScreen();
@@ -103,37 +114,34 @@ public sealed class ContactBook
     private void ShowWelcomeScreen()
     {
         Clear();
-        WriteTitle("Contact Book");
     }
 
     private void ShowInputOptions()
     {
-        Console.WriteLine("[N] Next Page    [P] Previous Page");
-        Console.WriteLine("[C] Create       [R] Review");
-        Console.WriteLine("[F] Find         [O] Order");
-        Console.WriteLine("[D] Deduplicate  [X] Exit");
-        Console.WriteLine("Tip: use D to find duplicate contacts and choose the merged fields.");
-        Console.Write("Option: ");
+        Console.WriteLine("[+] Next Page | [C] Create Contact | [D] Delete Contact | [M] Deduplicate Contacts");
+        Console.WriteLine("[-] Prev Page | [R] Review Contact | [F] Find Contacts  | [S] Change Page Size");
+        Console.WriteLine("[G] Goto Page | [U] Update Contact | [O] Order Contacts | [X] Exit");
+        Console.WriteLine();
+        Console.Write("> ");
     }
 
     private void ShowExitScreen()
     {
         Clear();
-        WriteTitle("Goodbye");
+        Console.WriteLine("Goodbye.");
     }
 
     private void ShowContacts(IReadOnlyList<Contact> contacts, string title = "Contacts")
     {
         var ordered = contacts.Order(new ContactComparer(_sortField)).ToList();
-        var totalPages = Math.Max(1, (int)Math.Ceiling(ordered.Count / (double)PageSize));
+        var totalPages = Math.Max(1, (int)Math.Ceiling(ordered.Count / (double)_pageSize));
         _pageIndex = Math.Clamp(_pageIndex, 0, totalPages - 1);
-        var page = ordered.Skip(_pageIndex * PageSize).Take(PageSize).ToList();
+        var page = ordered.Skip(_pageIndex * _pageSize).Take(_pageSize).ToList();
 
-        WriteTitle(title);
-        WriteContactTable(page, _pageIndex * PageSize + 1);
+        WriteContactTable(page, _pageIndex * _pageSize + 1);
 
-        var first = ordered.Count == 0 ? 0 : _pageIndex * PageSize + 1;
-        var last = Math.Min((_pageIndex + 1) * PageSize, ordered.Count);
+        var first = ordered.Count == 0 ? 0 : _pageIndex * _pageSize + 1;
+        var last = Math.Min((_pageIndex + 1) * _pageSize, ordered.Count);
         Console.WriteLine($"Page {_pageIndex + 1} of {totalPages} ({first}-{last} of {ordered.Count})");
         Console.WriteLine();
     }
@@ -336,4 +344,5 @@ public sealed class ContactBook
         }
     }
 }
+
 
