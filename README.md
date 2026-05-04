@@ -120,3 +120,18 @@ Estas mejoras quedan como trabajo futuro, igual que en la introduccion del profe
 - Data persistence.
 - Web API.
 - Web app.
+## Checklist antes de entregar
+
+Antes de entregar el enlace de GitHub, se puede verificar el proyecto con estos comandos:
+
+```powershell
+dotnet build ContactBookCSharp.sln
+dotnet run --project tests/ContactBook.Test
+```
+
+Tambien se puede correr la aplicacion principal con:
+
+```powershell
+dotnet run --project src/ContactBook
+```
+
