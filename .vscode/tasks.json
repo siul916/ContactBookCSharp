@@ -2,6 +2,17 @@
   "version": "2.0.0",
   "tasks": [
     {
+      "label": "rebuild contactbook",
+      "command": "dotnet",
+      "type": "process",
+      "args": [
+        "build",
+        "${workspaceFolder}/src/ContactBook/ContactBook.csproj",
+        "-t:Rebuild"
+      ],
+      "problemMatcher": "$msCompile"
+    },
+    {
       "label": "build",
       "command": "dotnet",
       "type": "process",
