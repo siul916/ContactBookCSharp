@@ -112,6 +112,7 @@ public sealed class ContactBook
         Console.WriteLine("[C] Create       [R] Review");
         Console.WriteLine("[F] Find         [O] Order");
         Console.WriteLine("[D] Deduplicate  [X] Exit");
+        Console.WriteLine("Tip: use D to find duplicate contacts and choose the merged fields.");
         Console.Write("Option: ");
     }
 
@@ -335,3 +336,4 @@ public sealed class ContactBook
         }
     }
 }
+
