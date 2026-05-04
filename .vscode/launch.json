@@ -1,0 +1,16 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "ContactBook",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build",
+      "program": "${workspaceFolder}/src/ContactBook/bin/Debug/net10.0/ContactBook.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/src/ContactBook",
+      "console": "externalTerminal",
+      "stopAtEntry": false
+    }
+  ]
+}
