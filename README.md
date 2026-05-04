@@ -63,3 +63,19 @@ dotnet run --project tests/ContactBook.Test
 ```powershell
 dotnet build ContactBookCSharp.sln
 ```
+## Temas de los videos cubiertos
+
+1. **Contact Book - 01 - Contact + Contact Test**
+   - Clase `Contact`.
+   - Clase de prueba `ContactTests`.
+   - `ToString`, `Equals`, `GetHashCode`, operadores `==` y `!=`.
+
+2. **Contact Book - 02 - Architecture + Show Welcome Screen + Show Contacts**
+   - Clase `ContactBook` para controlar la aplicacion.
+   - Pantalla de bienvenida.
+   - Tabla para mostrar contactos.
+
+3. **Contact Book - 03 - Show Input Options + Show Exit Screen**
+   - Menu con opciones `N`, `P`, `C`, `R`, `F`, `O`, `D`, `X`.
+   - Pantalla de salida.
+   - Validacion de input.
