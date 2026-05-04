@@ -79,3 +79,25 @@ dotnet build ContactBookCSharp.sln
    - Menu con opciones `N`, `P`, `C`, `R`, `F`, `O`, `D`, `X`.
    - Pantalla de salida.
    - Validacion de input.
+4. **Contact Book - 04 - Next Page + Create Contact**
+   - Paginacion con next/previous page.
+   - Crear contactos desde consola.
+
+5. **Contact Book - 05 - Review Contact + Find Contacts**
+   - Revisar contacto por indice.
+   - Confirmacion antes de borrar.
+   - Busqueda con `FindAll`.
+
+6. **Contact Book - 06 - Order Contacts + Deduplicate Contacts**
+   - Ordenamiento con `ContactComparer` e `IComparer<Contact>`.
+   - Deteccion de contactos duplicados.
+
+7. **ContactBook - 07 - Deduplicate + Merge Contacts**
+   - `ContactMerger` permite escoger que dato usar de cada duplicado.
+   - Pantalla de duplicate contacts y merged contact.
+
+8. **ContactBook - 08 - Disjoint-Set-Union + Find-Union Algorithm**
+   - `Union<T>` implementa la estructura DSU.
+   - `Find` usa compresion de caminos.
+   - `Join` usa union por rango.
+   - `UnionTest.cs` prueba el algoritmo.
