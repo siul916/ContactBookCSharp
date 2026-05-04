@@ -6,6 +6,7 @@ var tests = new List<(string Name, Action Test)>
     ("Contact ToString", ContactTests.ToStringContainsContactData),
     ("ContactBook find contacts", ContactBookTest.FindContactsReturnsMatches),
     ("ContactBook duplicate groups", ContactBookTest.FindDuplicateContactsUsesUnion),
+    ("ContactMerger automatic merge", ContactBookTest.MergeAutomaticallyKeepsBestFields),
     ("Union joins sets", UnionTest.JoinConnectsTwoSets),
     ("Union chains sets", UnionTest.FindUsesTransitiveConnection)
 };
@@ -47,3 +48,4 @@ internal static class Assert
         }
     }
 }
+
